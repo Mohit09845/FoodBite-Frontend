@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Popover, PopoverTrigger, PopoverContent } from "./ui/popover";
 import { Avatar, AvatarImage } from "./ui/avatar";
-import { User2, LogOut } from "lucide-react";
+import { User2, LogOut, Pizza } from "lucide-react";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const UserNameMenu = () => {
@@ -12,7 +12,7 @@ const UserNameMenu = () => {
             <Popover>
                 <PopoverTrigger asChild>
                     <Avatar className="cursor-pointer">
-                        <AvatarImage src={user?.picture || 'https://via.placeholder.com/150'}alt="User Avatar"/>
+                        <AvatarImage src={user?.picture || 'https://via.placeholder.com/150'} alt="User Avatar" />
                     </Avatar>
                 </PopoverTrigger>
                 <PopoverContent className="w-80">
@@ -25,11 +25,17 @@ const UserNameMenu = () => {
                             <p className="text-sm text-muted-foreground">{user?.email}</p>
                         </div>
                     </div>
-                    <div className="flex flex-col text-gray-600 my-2">
+                    <div className="flex flex-col text-gray-600 my-2 space-y-2">
                         <div className="flex w-fit items-center gap-2 cursor-pointer">
                             <User2 size='22' />
                             <Button variant="link" size='sm'>
                                 <Link to="/user-profile" className="hover:text-orange-500">View Profile</Link>
+                            </Button>
+                        </div>
+                        <div className="flex w-fit items-center gap-2 cursor-pointer">
+                            <Pizza size='22' />
+                            <Button variant="link" size='sm'>
+                                <Link to="/manage-restaurant" className="hover:text-orange-500">Manage Restaurant</Link>
                             </Button>
                         </div>
                         <div className="flex w-fit items-center gap-2 cursor-pointer">
