@@ -8,7 +8,8 @@ export const useSearchRestaurants = (searchState: SearchState,city?: string) => 
     const params = new URLSearchParams();
     params.set("searchQuery",searchState.searchQuery);
     params.set("page",searchState.page.toString());
-    params.set("selectedCuisines",searchState.selectedCuisines.join(","))
+    params.set("selectedCuisines",searchState.selectedCuisines.join(","));
+    params.set("sortoption",searchState.sortOption);
     const response = await fetch(`${API_BASE_URL}/api/my/restaurantDetail/search/${city}?${params.toString()}`);
 
     if (!response.ok) {
